@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/user', function () { return 'Admin User'; });
+    Route::get('/post', function () { return 'Admin Post'; });
 });
+
