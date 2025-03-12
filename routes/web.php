@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\PageController;
 
-Route::prefix('admin')->group(function () {
-    Route::get('/user', function () { return 'Admin User'; });
-    Route::get('/post', function () { return 'Admin Post'; });
-});
-
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
