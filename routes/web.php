@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +11,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use App\Http\Controllers\LevelController; // Tambahkan ini
 
-use App\Http\Controllers\WelcomeController;
-
-Route::get('/greeting', [WelcomeController::class, 'greeting']);
-
+// Routing untuk Praktikum 4: DB Facade Implementation
+Route::get('/level', [LevelController::class, 'index']);
+Route::get('/level/add', [LevelController::class, 'add']);
+Route::get('/level/update', [LevelController::class, 'update']);
+Route::get('/level/delete', [LevelController::class, 'delete']);
 
