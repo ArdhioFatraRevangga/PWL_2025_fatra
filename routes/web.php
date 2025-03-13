@@ -11,11 +11,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-use App\Http\Controllers\LevelController; // Tambahkan ini
+use App\Http\Controllers\CategoryController; // Tambahkan ini
 
-// Routing untuk Praktikum 4: DB Facade Implementation
-Route::get('/level', [LevelController::class, 'index']);
-Route::get('/level/add', [LevelController::class, 'add']);
-Route::get('/level/update', [LevelController::class, 'update']);
-Route::get('/level/delete', [LevelController::class, 'delete']);
-
+// Routing untuk Query Builder (Praktikum 5)
+Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/category/add', [CategoryController::class, 'add']);
+Route::get('/category/update', [CategoryController::class, 'update']);
+Route::get('/category/delete', [CategoryController::class, 'delete']);
