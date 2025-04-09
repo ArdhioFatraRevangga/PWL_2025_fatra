@@ -13,7 +13,7 @@ class TStokSeeder extends Seeder
 
         foreach ($barang as $b) {
             DB::table('t_stok')->insert([
-                'barang_id' => $b->barang_id,
+                'barang_id' => $b->id,
                 'jumlah' => fake()->numberBetween(10, 100),
                 'created_at' => now(),
                 'updated_at' => now(),

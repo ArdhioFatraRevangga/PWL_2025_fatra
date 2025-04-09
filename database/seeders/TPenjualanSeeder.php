@@ -11,11 +11,11 @@ class TPenjualanSeeder extends Seeder
     {
         for ($i = 0; $i < 5; $i++) {
             DB::table('t_penjualan')->insert([
-                'tanggal' => now()->subDays($i),
-                'total' => 0, // akan diupdate setelah detail dimasukkan
+                'tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+            
         }
     }
 }
