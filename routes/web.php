@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LevelController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController; // Tambahkan ini
 
 // Routing untuk Query Builder (Praktikum 5)
+Route::get('/level', [LevelController::class,'index']);
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/category/add', [CategoryController::class, 'add']);
 Route::get('/category/update', [CategoryController::class, 'update']);
