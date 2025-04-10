@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-use App\Http\Controllers\CategoryController; // Tambahkan ini
+use App\Http\Controllers\KategoriController; // Tambahkan ini
 
 // Routing untuk Query Builder (Praktikum 5)
 Route::get('/level', [LevelController::class,'index']);
-Route::get('/category', [CategoryController::class, 'index']);
-Route::get('/category/add', [CategoryController::class, 'add']);
-Route::get('/category/update', [CategoryController::class, 'update']);
-Route::get('/category/delete', [CategoryController::class, 'delete']);
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/add', [KategoriController::class, 'add']);
+Route::get('/kategori/update', [KategoriController::class, 'update']);
+Route::get('/kategori/delete', [KategoriController::class, 'delete']);
