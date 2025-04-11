@@ -2,43 +2,22 @@
 <html>
 <head>
     <title>Data User</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 70%;
-        }
-        th, td {
-            border: 1px solid #444;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #eee;
-        }
-    </style>
 </head>
 <body>
     <h1>Data User</h1>
-    
-    @if(count($data) > 0)
-    <table>
+    <table border="1" cellpadding="2" cellspacing="0">
         <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Nama</th>
-            <th>Level ID</th>
+            <td>ID</td>
+            <td>Username</td>
+            <td>Nama</td>
+            <td>ID Level Pengguna</td>
         </tr>
-        @foreach ($data as $user)
         <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->username }}</td>
-            <td>{{ $user->nama }}</td>
-            <td>{{ $user->id }}</td>
+            <td>{{ $data->user_id }}</td>
+            <td>{{ $data->username }}</td>
+            <td>{{ $data->nama }}</td>
+            <td>{{ $data->level_id }}</td>
         </tr>
-        @endforeach
     </table>
-    @else
-        <p>Belum ada data user.</p>
-    @endif
 </body>
 </html>
