@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController; // Tambahkan ini
 
 // Routing untuk Query Builder (Praktikum 5)
 Route::get('/level', [LevelController::class,'index']);
+Route::get('/user/with-level', [UserController::class, 'index_with_level']);
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/user', [UserController::class,'index']);
 Route::get('/user/test', [UserController::class, 'index']);
