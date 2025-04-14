@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController; // Tambahkan ini
 
 // Routing untuk Query Builder (Praktikum 5)
+Route::get("/", [WelcomeController::class,"index"]);
 Route::get('/level', [LevelController::class,'index']);
 Route::get('/user/with-level', [UserController::class, 'index_with_level']);
 Route::get('/kategori', [KategoriController::class, 'index']);
