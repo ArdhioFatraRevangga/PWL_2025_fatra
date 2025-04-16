@@ -317,4 +317,35 @@ function update(Request $request, string $id)
       }
       return redirect('/');
    }
+   public function confirm_ajax(string $id){
+    $user = UserModel:: find($id);
+    
+    return view('user.confirm_ajax', ['user' => $user]);
+   }
+   public function delete_ajax(Request $request, $id)
+   {
+        if($request->ajax() || $request->wantsJson()){
+            $user = UserModel::find($id);
+            if($user){
+                try {
+                    UserModel::destroy($id);
+                    return response()->json([
+                        'status'  => true,
+                        'message' => 'Data berhasil dihapus'
+                    ]);
+                } catch (\Illuminate\Database\QueryException $e) {
+                    return response()->json([
+                        'status'  => false,
+                        'message' => 'Data user gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini'
+                    ]);
+                }
+            }else{
+                return response()->json([
+                    'status'  => false,
+                    'message' => 'Data tidak ditemukan'
+                ]);
+            }
+         }
+      redirect('/');
+   }
 }
