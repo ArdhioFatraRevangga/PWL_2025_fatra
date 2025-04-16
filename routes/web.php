@@ -37,7 +37,7 @@ use App\Http\Controllers\UserController; // Tambahkan ini
 // Route:: get ('/', [WelcomeController :: class,'index' ]);
 
 Route::group(['prefix'=>'user'], function(){
-    
+
     Route::get('/', [UserController::class, 'index']);
     Route::post('/list', [UserController::class, 'list']);
     Route::get('/create', [UserController::class, 'create']);
@@ -51,5 +51,6 @@ Route::group(['prefix'=>'user'], function(){
     Route::put('/{id}/update_ajax', [UserController::class,'update_ajax']); //Menyimpan perubahan data User AJAX
     Route::get('/{id}/delete_ajax',[UserController::class,'confirm_ajax']);
     Route::delete('/{id}/delete_ajax', [UserController::class, 'delete_ajax']);
+    
     Route::delete('/{id}', [UserController::class, 'destroy']);
 });
