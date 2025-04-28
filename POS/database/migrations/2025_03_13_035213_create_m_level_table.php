@@ -9,15 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('m_level', function (Blueprint $table) {
-            $table->id(); // Primary key (level_id)
-            $table->string('nama_level', 50)->unique();
+            $table->id();
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.

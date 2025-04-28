@@ -1,22 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|+
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\UserController; // Tambahkan ini
+use App\Http\Controllers\UserController;
 
-// Routing untuk Query Builder (Praktikum 5)
-Route::get('/user/{id}/name/{name}', [UserController::class, 'profile']);
-Route::get('/category', [CategoryController::class, 'index']);
-Route::get('/category/add', [CategoryController::class, 'add']);
-Route::get('/category/update', [CategoryController::class, 'update']);
-Route::get('/category/delete', [CategoryController::class, 'delete']);
+// Menampilkan daftar user
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+// Menampilkan form tambah user
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+
+// Menyimpan data user (Menggunakan mass assignment dengan $fillable)
+Route::post('/user', [UserController::class, 'store'])->name('user.store');
+
+// Menampilkan form edit user berdasarkan id
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+
+// Menyimpan perubahan data user
+Route::post('/user/{id}', [UserController::class, 'update'])->name('user.update');
+
+// Menghapus user berdasarkan id
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');

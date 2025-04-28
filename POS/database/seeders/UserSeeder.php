@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,22 +11,30 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('m_user')->insert([
+        $data = [
             [
+                'user_id' => 1,
+                'level_id' => 1,
                 'username' => 'admin',
-                'password' => Hash::make('1234'),
-                'level_id' => 1
+                'nama' => 'Administrator',
+                'password' => Hash::make('12345'), // class untuk mengenkripsi/hash password
             ],
             [
-                'username' => 'user1',
-                'password' => Hash::make('user123'),
-                'level_id' => 2
-            ],
-            [
+                'user_id' => 2,
+                'level_id' => 2,
                 'username' => 'manager',
-                'password' => Hash::make('manager123'),
-                'level_id' => 3
-            ]
-        ]);
+                'nama' => 'Manager',
+                'password' => Hash::make('12345'),
+            ],
+            [
+                'user_id' => 3,
+                'level_id' => 3,
+                'username' => 'staff',
+                'nama' => 'Staff/Kasir',
+                'password' => Hash::make('12345'),
+            ],
+        ];
+
+        DB::table('m_user')->insert($data);
     }
 }

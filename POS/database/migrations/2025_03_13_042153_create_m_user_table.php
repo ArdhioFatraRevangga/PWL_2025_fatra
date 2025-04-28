@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('m_user', function (Blueprint $table) {
             $table->id('user_id'); // Primary key
-            $table->string('username', 50)->unique();
+            $table->unsignedBigInteger('level_id')->index();
+            $table->string('username', 20)->unique();
+            $table->string('nama', 100);
             $table->string('password');
             $table->unsignedBigInteger('level_id'); // Foreign key
             $table->timestamps();
     
-            $table->foreign('level_id')->references('id')->on('m_level')->onDelete('cascade');
+            $table->foreign('level_id')->references('id')->on('m_level');
         });
     }
     
