@@ -354,29 +354,31 @@ Route:: post('login', [AuthController:: class,'postlogin' ]);
 Route:: get('logout', [AuthController:: class,'logout' ])->middleware ('auth');
 
 Route:: middleware(['auth' ])->group(function(){ // artinya semua route di dalam group ini harus login dulu
-     // artinya semua route di dalam group ini harus punya role ADM (Administrator)
-     Route:: middleware( ['authorize:ADM' ]) ->group(function(){
-        Route:: get('/level', [LevelController:: class,'index']);
-        Route:: post('/level/list', [LevelController:: class,'list' ]); // untuk list json datatables
-        Route:: get('/level/create', [LevelController:: class,'create' ]);
-        Route:: post('/level', [LevelController :: class,'store' ]);
-        Route:: get('/level/{id}/edit', [LevelController:: class,'edit']); // untuk tampilkan form edit
-        Route:: put('/level/{id}', [LevelController :: class,'update']);
-        Route:: delete('/level/{id}', [LevelController:: class,'destroy' ]);
+
+
+// masukkan semua route yang perlu autentikasi di sini
 });
+// artinya semua route di dalam group ini harus punya role ADM (Administrator)
+Route:: middleware( ['authorize:ADM' ]) ->group(function(){
+    Route:: get('/level', [LevelController:: class,'index']);
+    Route:: post('/level/list', [LevelController:: class,'list' ]); // untuk list json datatables
+    Route:: get('/level/create', [LevelController:: class,'create' ]);
+    Route:: post('/level', [LevelController :: class,'store' ]);
+    Route:: get('/level/{id}/edit', [LevelController:: class,'edit']); // untuk tampilkan form edit
+    Route:: put('/level/{id}', [LevelController :: class,'update']);
+    Route:: delete('/level/{id}', [LevelController:: class,'destroy' ]);
 });
 // artinya semua route di dalam group ini harus punya role ADM (Administrator) dan MNG (Manager)
 Route:: middleware( ['authorize: ADM, MNG' ])->group(function(){
-    Route:: get('/barang', [BarangController:: class,'index']);
-    Route:: post('/barang/list', [BarangController :: class,'list' ]);
-    Route:: get('/barang/create_ajax', [BarangController:: class,'create_ajax' ]); // ajax form create
-    Route:: post('/barang_ajax', [BarangController:: class,'store_ajax' ]); // ajax store
-    Route:: get('/barang/{id}/edit_ajax', [BarangController :: class,'edit_ajax' ]); // ajax form edit
-    Route:: put('/barang/{id}/update_ajax', [BarangController :: class,'update_ajax' ]); // ajax update
-    Route:: get('/barang/{id}/delete_ajax',[BarangController :: class,'confirm_ajax' ]); // ajax form confirm
-    Route:: delete('/barang/{id}/delete_ajax', [BarangController :: class,'delete_ajax' ]); // ajax delete
+Route:: get('/barang', [BarangController:: class,'index']);
+Route:: post('/barang/list', [BarangController :: class,'list' ]);
+Route:: get('/barang/create_ajax', [BarangController:: class,'create_ajax' ]); // ajax form create
+Route:: post('/barang_ajax', [BarangController:: class,'store_ajax' ]); // ajax store
+Route:: get('/barang/{id}/edit_ajax', [BarangController :: class,'edit_ajax' ]); // ajax form edit
+Route:: put('/barang/{id}/update_ajax', [BarangController :: class,'update_ajax' ]); // ajax update
+Route:: get('/barang/{id}/delete_ajax',[BarangController :: class,'confirm_ajax' ]); // ajax form confirm
+Route:: delete('/barang/{id}/delete_ajax', [BarangController :: class,'delete_ajax' ]); // ajax delete
 });
-// masukkan semua route yang perlu autentikasi di sini
 // // User routes group
 // Route::group(['prefix' => 'user'], function () {
 //     // Menampilkan halaman awal user

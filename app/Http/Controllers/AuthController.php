@@ -9,13 +9,13 @@ class AuthController extends Controller
 {
     public function login()
     {
-        if (Auth::check()) { // jika sudah login, maka redirect ke halaman home
+        if (Auth::check()) {
             return redirect('/');
         }
         return view('auth.login');
     }
 
-    public function postlogin(Request $request)
+    public function postLogin(Request $request)
     {
         if ($request->ajax() || $request->wantsJson()) {
             $credentials = $request->only('username', 'password');
@@ -25,7 +25,6 @@ class AuthController extends Controller
                     'status' => true,
                     'message' => 'Login Berhasil',
                     'redirect' => url('/')
-
                 ]);
             }
 
@@ -40,9 +39,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect('login');
     }
 }
